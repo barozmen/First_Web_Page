@@ -1,0 +1,22 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+
+<h3> Makale Oluştur</h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}<!-- FormHelpers'ı dahil etmemiz gerekiyor ki biz burda renderfield'ı alabilelim -->
+
+
+<form method = "post"> <!-- Normalde method yerine action="" yazılırdı fakat bizim herhangi bir aksiyonumuz yok. -->
+
+    {{ render_field(form.title,class = "form-control")}}
+    {{ render_field(form.content,class = "form-control") }}  
+    
+    <button type="submit" class="btn btn-danger">Makale Ekle</button> <!-- Bootstrap'ten Buttons grafiği çekiyoruz.Ayrıca butona bastığımızda Post Request yapması için type=submit yapıyoruz.-->
+
+</form>
+
+{% endblock body %}
+
+

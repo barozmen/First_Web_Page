@@ -1,0 +1,17 @@
+<!-- Response döndürüldükten sonra Flash Message işlemi yaptırır. -->
+{% with messages = get_flashed_messages(with_categories=true) %}  <!-- with' işlemi while ile oldukça benzer bir işlemdir. -->
+  {% if messages %}
+    
+    {% for category, message in messages %}
+    <br>
+    <div class="alert alert-{{ category}} " role="alert"> <!--Bootstrap4 Alert sitesinden hazır şablon çektik. -->
+    
+    {{ message }}  <!-- Burda da yazmak istegimiz mesajı blog.py'e yazıp burda message diye gösterdik. -->
+    
+    </div>
+    {% endfor %}
+    
+  {% endif %}
+{% endwith %}
+
+<!-- Biz bu flash message'ı sadece 1 yere dahil edip her yerden kullanmak için layout.html dizinine dahil etmemiz gerekiyor. -->

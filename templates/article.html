@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if article %}
+
+<h4>{{article.title}}</h4>
+<hr>
+<h6>{{article.content|safe}}</h6> <!-- safe is a filter that prevents XSS attacks -->
+<hr>
+<p>Yazar : {{article.author}}</p>
+
+{% else %}
+<br>
+<div class = "alert alert-warning"> 
+  
+    Böyle bir makale bulunmuyor !
+
+</div>
+{% endif %}
+
+{% endblock body %}
+
+

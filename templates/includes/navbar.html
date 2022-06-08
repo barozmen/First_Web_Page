@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Baro'nun Blogu</a> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/about">Hakkımda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/articles">Makaleler</a> 
+      </li>  
+    </ul>
+   
+    <ul class="navbar-nav ml-auto">
+
+      {% if session["logged_in"] == True %} <!-- Eğer giriş doğru yapıldıysa -->
+        <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">Kontrol Paneli</a> <!-- Sadece giriş yapıldığında gözükecek bir sayfa tasarımı -->  
+        </li> 
+        <li class="nav-item active">
+        <a class="nav-link" href="/logout">Çıkış Yap</a> <!-- Kullanıcı çıkış yapıldığında logout yapılacak / Sadece kullanıcı girişi yapan kullanıcıya gösterilir.-->
+        </li>  
+        
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Kullanıcı Girişi</a> <!-- Kullanıcı girişi yapılmışsa giriş yapılmış kullanıcıya gösterilir / Sadece kullanıcı girişi yapmamış kullanıcıya gösterilir. -->
+      </li> 
+      {% endif %}
+
+
+
+
+      <li class="nav-item active"> 
+        <a class="nav-link" href="/register">Kayıt Olun</a> <!-- /register -->
+      </li>   
+          
+      
+    </ul>
+    
+  </div>
+</nav>
